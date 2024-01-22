@@ -2,6 +2,7 @@
 import NavLink from "./NavLink";
 import React, { useState } from "react";
 import styles from "./links.module.css";
+import Image from "next/image";
 
 const links = [
   {
@@ -47,27 +48,36 @@ const Links = () => {
           </>
         )}
       </div>
-      <button className={styles.menuButton} onClick={() => setOpen(!open)}>Menu</button>
+      <Image
+        className={styles.menuButton}
+        onClick={() => setOpen(!open)}
+        height={30}
+        width={30}
+        src="/menu1.png"
+        alt="menu"
+      />
       {open && (
-        <div className={styles.mobileLinks}>
-          {links.map((link, index) => (
-            <NavLink key={link.title} link={link} />
-          ))}
-          {session ? (
-            isAdmin ? (
-              <>
-                <NavLink link={{ title: "Dashboard", path: "/dashboard" }} />
+        <div className={styles.mobileMenu}>
+          <div className={styles.mobileLinks}>
+            {links.map((link, index) => (
+              <NavLink key={link.title} link={link} />
+            ))}
+            {session ? (
+              isAdmin ? (
+                <>
+                  <NavLink link={{ title: "Dashboard", path: "/dashboard" }} />
+                  <button className={styles.logout}>Logout</button>
+                </>
+              ) : (
                 <button className={styles.logout}>Logout</button>
-              </>
+              )
             ) : (
-              <button className={styles.logout}>Logout</button>
-            )
-          ) : (
-            <>
-              <NavLink link={{ title: "Sign in", path: "/signin" }} />
-              <NavLink link={{ title: "Get Started", path: "/signup" }} />
-            </>
-          )}
+              <>
+                <NavLink link={{ title: "Sign in", path: "/signin" }} />
+                <NavLink link={{ title: "Get Started", path: "/signup" }} />
+              </>
+            )}
+          </div>
         </div>
       )}
     </div>

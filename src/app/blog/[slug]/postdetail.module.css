@@ -1,0 +1,68 @@
+.container{
+    display: flex;
+    gap:100px
+}
+
+.imgContainer{
+    flex:1;
+    position:relative;
+}
+
+.img{
+    height: 500px;
+    width: 500px;
+}
+
+
+.blogContent{
+    flex:2;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+   
+}
+
+
+.authorDetails{
+    display: flex;
+    gap:50px
+}
+
+.avatar{
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+
+
+.blogTitle{
+
+    font-size: 44px;
+}
+
+
+.blogDetails, .publish{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.value{
+    font-weight: 500;
+}
+
+.title{
+    color:lightblue;
+    font-weight: bold;
+}
+
+
+@media (max-width: 768px){
+    .imgContainer{
+        display: none;
+    }
+}
